@@ -4,7 +4,14 @@ return {
   -- example of imporing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
-  { import = "astrocommunity.colorscheme.kanagawa" },
+  {
+    import = "astrocommunity.colorscheme.kanagawa-nvim",
+    enable = false,
+  },
+  {
+    import = "astrocommunity.colorscheme.dracula-nvim",
+  },
+  -- { import = "astrocommunity.colorscheme.mellow-nvim" },
   { import = "astrocommunity.color.twilight-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },

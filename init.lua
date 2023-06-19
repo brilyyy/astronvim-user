@@ -14,7 +14,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "kanagawa-dragon",
+  colorscheme = "dracula",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -34,6 +34,10 @@ return {
       end,
       tailwindcss = function(opts)
         opts.root_dir = require("lspconfig.util").root_pattern("tailwind.config.js", "tailwind.config.ts")
+        return opts
+      end,
+      eslint = function(opts)
+        opts.root_dir = require("lspconfig.util").root_pattern("package.json", ".eslintrc.json", ".eslintrc.js")
         return opts
       end,
     },
