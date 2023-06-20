@@ -1,25 +1,27 @@
 return {
   -- Add the community repository of plugin specifications
   "AstroNvim/astrocommunity",
-  -- example of imporing a plugin, comment out to use it or add your own
+  -- example of importing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   {
     import = "astrocommunity.colorscheme.kanagawa-nvim",
-    enable = false,
+    enabled = true,
+  },
+  {
+    import = "astrocommunity.colorscheme.gruvbox-baby",
+    enabled = false,
   },
   {
     import = "astrocommunity.colorscheme.dracula-nvim",
+    enabled = false,
   },
   -- { import = "astrocommunity.colorscheme.mellow-nvim" },
   { import = "astrocommunity.color.twilight-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
-  -- { import = "astrocommunity.editing-support.cutlass-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
-  -- { import = "astrocommunity.bars-and-lines.lualine-nvim" },
-  -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
   {
     "folke/zen-mode.nvim",
     opts = {

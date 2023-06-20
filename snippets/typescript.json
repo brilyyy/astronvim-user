@@ -1,0 +1,115 @@
+{
+	"JSON": {
+		"prefix": "jsons",
+		"body": [
+			"JSON.parse(JSON.stringify($1))"
+		],
+		"description": "Json parse stringify"
+	},
+	"New ObjectId": {
+		"prefix": "nobject",
+		"body": [
+			"new Types.ObjectId($1)"
+		],
+		"description": "new objectid"
+	},
+	"ObjectId Types": {
+		"prefix": "tobject",
+		"body": [
+			"Types.ObjectId"
+		],
+		"description": "objectid type"
+	},
+	"Transactionalmanager tx": {
+		"prefix": "tx",
+		"body": [
+			"const result = await this.dataSource.transaction(async (manager) =>{",
+			"$1",
+			"})"
+		],
+		"description": "transactionalmanager typeorm tx"
+	},
+	"comand relation db": {
+		"prefix": "cr",
+		"body": [
+			"/**",
+			"* -------------------------------------------",
+			"* ------------- RELATIONSHIP ----------------",
+			"* -------------------------------------------",
+			"*/"
+		],
+		"description": "command relationship entity"
+	},
+	"comand handler": {
+		"prefix": "ch",
+		"body": [
+			"import { CommandHandler, ICommandHandler } from '@nestjs/cqrs'",
+			"",
+			"@CommandHandler($1)",
+			"export class $2Handler implements ICommandHandler<$1>{",
+			"constructor(){}",
+			"async execute(command: $1){",
+			"throw new Error('Method not implemented.')",
+			"}",
+			"}"
+		],
+		"description": "command handler"
+	},
+	"query handler": {
+		"prefix": "qh",
+		"body": [
+			"import { QueryHandler, IQueryHandler } from '@nestjs/cqrs'",
+			"",
+			"@QueryHandler($1)",
+			"export class $2Handler implements IQueryHandler<$1>{",
+			"constructor(){}",
+			"async execute(query: $1){",
+			"throw new Error('Method not implemented.')",
+			"}",
+			"}"
+		],
+		"description": "Query handler"
+	},
+	"session decorator": {
+		"prefix": "sd",
+		"body": [
+			"@Session() session: Record<string, any>"
+		],
+		"description": "Session Decorator"
+	},
+	"Repository typeorm": {
+		"prefix": "rt",
+		"body": [
+			"import { EntityManager, Repository } from 'typeorm';",
+			"import { Injectable } from '@nestjs/common';",
+			"import { DATABASE_NAME } from 'src/config/database.config';",
+			"import { InjectEntityManager } from '@nestjs/typeorm';",
+			"",
+			"@Injectable()",
+			"export class $2Repository extends Repository<$1> {",
+			"constructor(",
+			"@InjectEntityManager(DATABASE_NAME.$3)",
+			"private entityManager: EntityManager,",
+			") {",
+			"super($1, entityManager);",
+			"}",
+			"}"
+		],
+		"description": "Repository typeorm"
+	},
+	"DataSource Inject": {
+		"prefix": "ds",
+		"body": [
+			"@InjectDataSource(DATABASE_NAME.$1)",
+			"private dataSource: DataSource"
+		],
+		"description": "DataSource Inject"
+	},
+	"idSekolahbpi": {
+		"prefix": "idSekolahBpi",
+		"body": [
+			"const idSekolah = get(session, 'passport.user.idSekolah', null)"
+		],
+		"description": "idSekolah from session bpi"
+	}
+}
