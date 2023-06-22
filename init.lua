@@ -1,15 +1,15 @@
 return {
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin",     -- remote to use
-    channel = "stable",    -- "stable" or "nightly"
-    version = "v3.*",      -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "nightly",    -- branch name (NIGHTLY ONLY)
-    commit = nil,          -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false,  -- skip prompts about breaking changes
+    remote = "origin", -- remote to use
+    channel = "stable", -- "stable" or "nightly"
+    version = "v3.*", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "nightly", -- branch name (NIGHTLY ONLY)
+    commit = nil, -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_quit = false,     -- automatically quit the current session after a successful update
+    auto_quit = false, -- automatically quit the current session after a successful update
     remotes = {},
   },
 
@@ -44,7 +44,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true,     -- enable or disable format on save globally
+        enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -55,18 +55,20 @@ return {
       disabled = { -- disable formatting capabilities for the listed language servers
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         -- "lua_ls",
+        "lua_ls",
+        "tsserver",
       },
-      timeout_ms = 3200,        -- default format timeout
+      timeout_ms = 3200, -- default format timeout
       filter = function(client) -- fully override the default formatting function
         local filetype = client.name
         local use_null_ls = client == "null-ls"
         local is_webfiles = filetype == "javascript"
-            or filetype == "typescript"
-            or filetype == "typescriptreact"
-            or filetype == "javascriptreact"
-            or filetype == "html"
-            or filetype == "css"
-            or filetype == "json"
+          or filetype == "typescript"
+          or filetype == "typescriptreact"
+          or filetype == "javascriptreact"
+          or filetype == "html"
+          or filetype == "css"
+          or filetype == "json"
 
         if filetype == "lua" then return use_null_ls end
         if is_webfiles then return use_null_ls end
@@ -128,22 +130,4 @@ return {
       },
     },
   },
-
-  -- This function is run last and is a good place to configuring
-  -- augroups/autocommands and custom filetypes also this just pure lua so
-  -- anything that doesn't fit in the normal config locations above can go here
-  polish = function()
-    -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
-  end,
 }

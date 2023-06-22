@@ -1,10 +1,10 @@
 return {
   {
-    "jose-elias-alvarez/typescript.nvim", -- add lsp plugin
+    "jose-elias-alvarez/typescript.nvim",
     {
       "williamboman/mason-lspconfig.nvim",
       opts = {
-        ensure_installed = { "tsserver" }, -- automatically install lsp
+        ensure_installed = { "tsserver" },
       },
     },
   },
@@ -133,17 +133,28 @@ return {
           },
         },
       }
-
       -- return the final options table
       return opts
     end,
   },
-
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
-      require "plugins.configs.luasnip" (plugin, opts)                                       -- include the default astronvim config that calls the setup call
+      require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } } -- load snippets paths
+    end,
+  },
+  {
+    "ziontee113/icon-picker.nvim",
+    cmd = {
+      "IconPickerNormal",
+      "IconPickerYank",
+      "IconPickerInsert",
+    },
+    config = function()
+      require("icon-picker").setup {
+        disable_legacy_commands = true,
+      }
     end,
   },
 }
