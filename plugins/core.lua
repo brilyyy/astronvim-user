@@ -4,19 +4,6 @@ return {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       local ascii = require "ascii"
-      -- opts.section.header.val = {
-      --   " █████  ███████ ████████ ██████   ██████",
-      --   "██   ██ ██         ██    ██   ██ ██    ██",
-      --   "███████ ███████    ██    ██████  ██    ██",
-      --   "██   ██      ██    ██    ██   ██ ██    ██",
-      --   "██   ██ ███████    ██    ██   ██  ██████",
-      --   " ",
-      --   "    ███    ██ ██    ██ ██ ███    ███",
-      --   "    ████   ██ ██    ██ ██ ████  ████",
-      --   "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-      --   "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-      --   "    ██   ████   ████   ██ ██      ██",
-      -- }
 
       opts.section.header.val = ascii.get_random_global()
       return opts
@@ -35,6 +22,8 @@ return {
           "node_modules",
         },
       }
+
+      opts.window.position = "right"
     end,
   },
   {

@@ -1,4 +1,6 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
+--
+-- vim.g.neovide_input_use_logo = 1
 return {
   opt = {
     -- set to true or false etc.
@@ -10,6 +12,8 @@ return {
     showbreak = "﬌",
   },
   g = {
+    neovide_cursor_animation_length = 0,
+    neovide_input_use_logo = 1,
     mapleader = " ", -- sets vim.g.mapleader
     autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
     cmp_enabled = true, -- enable completion at start
