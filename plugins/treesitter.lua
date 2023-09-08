@@ -9,7 +9,11 @@ return {
       "css",
       "javascript",
       "tsx",
-      "json"
+      "json",
     })
+
+    opts.autotag = {
+      enable_close_on_slash = false,
+    }
   end,
 }

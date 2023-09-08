@@ -1,5 +1,4 @@
 return {
-  -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
@@ -24,13 +23,6 @@ return {
       }
 
       opts.window.position = "right"
-    end,
-  },
-  {
-    "rebelot/heirline.nvim",
-    opts = function(_, opts)
-      opts.winbar = nil
-      return opts
     end,
   },
 }
